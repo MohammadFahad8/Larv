@@ -20,3 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get("/all-users",[UserController::class,'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/delete-car/{id}',[App\Http\Controllers\UserController::class,'destroy']);

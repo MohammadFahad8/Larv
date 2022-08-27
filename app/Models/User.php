@@ -43,5 +43,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function scopeAdmin($query, $para) {
+        return $query->where("email",'!=',$para);
+    }
+
+    public function picture() {
+        return $this->morphOne('Images',"imageable");
+    }
 
 }
